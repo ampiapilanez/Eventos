@@ -1,0 +1,27 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+h2{
+    padding: 3%;
+    color: black;
+}
+.encabezado{
+    background-color: black;
+    padding: 4%;
+}
+button {
+    border: 2px solid black;
+    margin: 2%;
+    padding: 1%;
+    font-size: 100%;
+}
+#galeria{
+    background-color: aqua;
+}
