@@ -13,7 +13,7 @@ FIN*/
 
 //CAMPURAR
 const menuBotones= document.querySelector("#menuBotones"); //captura un div para el menu
-//console.log(menuBotones);
+console.log(menuBotones);
 const capturarGaleria= document.querySelector("#galeria"); //captura seccion para las fotos
 //console.log(capturarGaleria);
 const fragment = document.createDocumentFragment();
@@ -25,7 +25,7 @@ const arrayGaleria= [
 {
     src: '../materiales/viajes/viajes-1.jpg',
     title: 'Viaje 1',
-    id : ["cielo", "mar", "arena", "chica"],
+    id: ["cielo", "mar", "arena", "chica"],
     alt: 'Este es el alt de foto 1',
 },{
     src: '../materiales/viajes/viajes-2.jpg',
@@ -45,59 +45,69 @@ const arrayGaleria= [
 },{
     src: '../materiales/viajes/viajes-5.jpg',
     title: 'Viaje 5',
-    description: ["edificio"],
+    id: ["edificio"],
     alt: 'Este es el alt de foto 5'
 },{
     src: '../materiales/viajes/viajes-6.jpg',
     title: 'Viaje 6',
-    description: ["montaña", "mar"],
+    id: ["montaña", "mar"],
     alt: 'Este es el alt de foto 6'
 },{
     src: '../materiales/viajes/viajes-7.jpg',
     title: 'Viaje 7',
-    description: ["montaña", "mar"],
+    id: ["montaña", "mar"],
     alt: 'Este es el alt de foto 7'
 },
 ]
+/*INICIO 
+    creado el arrayGaleria que contega objetos que contenga un id de palabras claves
+    funcion pintar boton 
+        create.element para un button 
+        darle los atributos telimitados en el array(tag)
+        meterlo dentro de un bocre para reutilizar la funcion 
+    funcion fotos especificas 
+        generarle un metodo "click" al botón y vincularlo al id con condicional
+        condicional: crear un if(usar un ternario en este caso por ser una funcion compacta)
+    funcion pintar boton 
+        vinculando las dos funciones anteriores pintar boton en el tablero 
+*/
+//EVENTOS
+/*document.addEventListener("click", (ev) => { //estar atento a cuando de presione le boton 
+    if (ev.target.matches("#menuBotones button")){ //(al presionar si coincide se ejecuta la accion)//(condicional ternario)
+        const tag = ev.target.id
+        console.log(ev.target.id)
+       }
+});*/
 
 //FUNCIONES 
-const darAtributosBoton= ()=> {
+const fltrarCards= (tag) => {
+    const arrayFiltrado = arrayGaleria.filter((objeto)=> (id.includes(tag));  //ese "nuevo array" es el que se envia a "pintarGaleria"
+    console.log(arrayFiltrado);
+}; 
+
+
+const crearBoton= (tag)=> {
     arrayEncabezado.forEach((tag) => { //recorer array de botones 
             const boton = document.createElement("button"); //en cada vuelta pintar un boton 
             boton.id= tag;
             boton.textContent= tag; //asignar atributos (id, atributo texto)
-menuBotones.append(boton);
+    menuBotones.append(boton);
     });
 };
-darAtributosBoton ();
-//console.log(menuBotones);
-
-//sumar a esa funcion un condicional ternario para pintar en pantalla las imagen que coincidan con los tag delimitados en el array id de cada imagen.
-//separar en dos funciones (una para delimitar card con sus atributos y otra para filtrar imagenes);
-
-const generarEventoBoton= () => {
-menuBotones.addEventListener("click", () => {
-    arrayGaleria.forEach((foto) => {   //recorrer el array para encontarr las palabras claves
-      const card = document.createElement("div");  //contenedor para las imagenes 
-      card.src= foto; 
-      card.title= foto;     //asignar atributos 
-      card.alt= foto;
-capturarGaleria.append(card);   // pintar en documento 
-    });         
+/*
+const pintarGaleria= (tag) => {
+    const card = document.createElement("div");  //contenedor para las imagenes 
+        card.src= valor; 
+        card.title= valor;
+        card.id= valor;     //asignar atributos 
+        card.alt= valor;
+    capturarGaleria.append(card); 
 };
+*/
 
-generarEventoBoton();
-console.log(generarEventoBoton);
+//DECLARAR FUNCIONES
+fltrarCards();
+//crearBoton ();
+//pintarGaleria();
 
-
-
-
-
-
-
-
-
-
-//EVENTOS 
-
-}); //FINAL
+}); //FINAL (document.addEventListener("DOMContentLoaded")
